@@ -1,0 +1,17 @@
+version: '4.0'
+services:
+  databasesales:
+    image: mysql:5.7
+    container_name: treinaweb
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'docker'   
+      MYSQL_USER: 'docker'
+      MYSQL_PASSWORD: 'docker'      
+      MYSQL_ROOT_PASSWORD: 'docker'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - './.mysql-data/db:/var/lib/mysql'

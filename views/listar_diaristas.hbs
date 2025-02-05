@@ -1,0 +1,28 @@
+<main class="container">
+    <h1>Lista de diariastas</h1>
+    <table class="table">
+        <thead>
+            <th>id</th>
+            <th>nome</th>
+            <th>endereço</th>
+            <th>Acões</th>
+            
+        </thead>
+        <tbody>
+            {{#each diaristas}}
+            <tr>
+                <th>{{ this.id }}</th>
+                <th><a href="/diaristas/show/{{this.id}}">{{ this.name }}</a></th>
+                <th>{{ this.endereco }}</th>
+                <th>
+                    <a href="/diaristas/{{this.id}}/edit" class="btn btn-primary">Editar</a>
+                    <form action="/diaristas/{{this.id}}?_method=DELETE" method="POST" style="display: inline;">
+                        <button type="submit" value="submit" onclick="return confirm('Tem certeza que deseja excluir este registro?')" class="btn btn-danger">Excluir</button>
+                    </form>
+                </th>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <a href="/diaristas/create" class="btn btn-success">Cadastrar</a>
+</main>
